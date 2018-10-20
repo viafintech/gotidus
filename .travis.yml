@@ -1,0 +1,12 @@
+sudo: required
+
+language: golang
+
+services:
+  - docker
+
+before_install:
+  - docker build -t gotidus .
+
+script:
+  - docker-compose run --rm -T gotidus make testci
