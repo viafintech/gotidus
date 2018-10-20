@@ -1,4 +1,4 @@
-package gotidus
+package testutils
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func compareStrings(got, expected string, t *testing.T) {
+func CompareStrings(got, expected string, t *testing.T) {
 	if got != expected {
 		t.Errorf(
 			"\nGot unexpected string: \n%#v\nExpected string:\n%#v\n",
@@ -16,7 +16,7 @@ func compareStrings(got, expected string, t *testing.T) {
 	}
 }
 
-func compareStructs(got, expected interface{}, t *testing.T) {
+func CompareStructs(got, expected interface{}, t *testing.T) {
 	if !reflect.DeepEqual(got, expected) {
 		// Also show JSON for easier visual comparison
 		o1, _ := json.MarshalIndent(got, "", "  ")

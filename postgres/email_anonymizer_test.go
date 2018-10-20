@@ -1,6 +1,10 @@
 package postgres
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/Barzahlen/gotidus/testutils"
+)
 
 func TestEmailAnonymizerBuild(t *testing.T) {
 	tableName := "foo"
@@ -41,7 +45,7 @@ func TestEmailAnonymizerBuild(t *testing.T) {
 
 			anonymizer := NewEmailAnonymizer()
 
-			compareStrings(
+			testutils.CompareStrings(
 				anonymizer.Build(tableName, columnName),
 				c.expectedString,
 				t,

@@ -1,6 +1,10 @@
 package postgres
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/Barzahlen/gotidus/testutils"
+)
 
 func TestOverlayAnonymizerBuild(t *testing.T) {
 	tableName := "foo"
@@ -37,7 +41,7 @@ func TestOverlayAnonymizerBuild(t *testing.T) {
 
 			anonymizer := NewOverlayAnonymizer(c.overlayBase, c.start, c.count)
 
-			compareStrings(
+			testutils.CompareStrings(
 				anonymizer.Build(tableName, columnName),
 				c.expectedString,
 				t,

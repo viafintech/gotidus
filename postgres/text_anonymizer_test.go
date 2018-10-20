@@ -3,6 +3,8 @@ package postgres
 import (
 	"strings"
 	"testing"
+
+	"github.com/Barzahlen/gotidus/testutils"
 )
 
 func TestTextAnonymizerBuild(t *testing.T) {
@@ -46,7 +48,7 @@ func TestTextAnonymizerBuild(t *testing.T) {
 
 			anonymizer.buildMapping = c.mappingBuilder
 
-			compareStrings(
+			testutils.CompareStrings(
 				anonymizer.Build(tableName, columnName),
 				c.expectedString,
 				t,

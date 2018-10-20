@@ -2,6 +2,8 @@ package gotidus
 
 import (
 	"testing"
+
+	"github.com/Barzahlen/gotidus/testutils"
 )
 
 func TestNewTable(t *testing.T) {
@@ -9,7 +11,7 @@ func TestNewTable(t *testing.T) {
 		columns: make(map[string]Anonymizer),
 	}
 
-	compareStructs(NewTable(), expectedTable, t)
+	testutils.CompareStructs(NewTable(), expectedTable, t)
 }
 
 func TestTableAddAndGetAnonymizer(t *testing.T) {
@@ -20,18 +22,18 @@ func TestTableAddAndGetAnonymizer(t *testing.T) {
 	// Set anonymizer
 	table.AddAnonymizer("foo", anonymizer)
 
-	compareStructs(anonymizer, table.columns["foo"], t)
+	testutils.CompareStructs(anonymizer, table.columns["foo"], t)
 
 	// Check loading
 	anon := table.GetAnonymizer("foo")
 
-	compareStructs(anonymizer, anon, t)
+	testutils.CompareStructs(anonymizer, anon, t)
 
 	// Check anonymizer not set
-	compareStructs(table.columns["baz"], nil, t)
+	testutils.CompareStructs(table.columns["baz"], nil, t)
 
 	// Check default anonymizer
 	defaultAnon := table.GetAnonymizer("baz")
 
-	compareStructs(defaultAnon, NewNoopAnonymizer(), t)
+	testutils.CompareStructs(defaultAnon, NewNoopAnonymizer(), t)
 }

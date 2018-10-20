@@ -1,6 +1,10 @@
 package postgres
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/Barzahlen/gotidus/testutils"
+)
 
 func TestRemoveJSONKeysAnonymizerBuild(t *testing.T) {
 	tableName := "foo"
@@ -39,7 +43,7 @@ func TestRemoveJSONKeysAnonymizerBuild(t *testing.T) {
 
 			anonymizer := NewRemoveJSONKeysAnonymizer(c.keys)
 
-			compareStrings(
+			testutils.CompareStrings(
 				anonymizer.Build(tableName, columnName),
 				c.expectedString,
 				t,

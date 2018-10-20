@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/Barzahlen/gotidus"
+	"github.com/Barzahlen/gotidus/testutils"
 )
 
 func TestConditionAnonymizerBuild(t *testing.T) {
@@ -68,7 +69,7 @@ func TestConditionAnonymizerBuild(t *testing.T) {
 				c.conditions...,
 			)
 
-			compareStrings(
+			testutils.CompareStrings(
 				anonymizer.Build(tableName, columnName),
 				c.expectedString,
 				t,

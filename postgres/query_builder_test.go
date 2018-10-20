@@ -1,6 +1,10 @@
 package postgres
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/Barzahlen/gotidus/testutils"
+)
 
 func TestQueryBuilderQueries(t *testing.T) {
 	queryBuilder := NewQueryBuilder()
@@ -60,7 +64,7 @@ func TestQueryBuilderQueries(t *testing.T) {
 
 	for _, c := range cases {
 		t.Run(c.title, func(t *testing.T) {
-			compareStrings(c.query, c.expectedQuery, t)
+			testutils.CompareStrings(c.query, c.expectedQuery, t)
 		})
 	}
 }

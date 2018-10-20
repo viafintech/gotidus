@@ -1,6 +1,10 @@
 package postgres
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/Barzahlen/gotidus/testutils"
+)
 
 func TestRegexReplaceAnonymizerBuild(t *testing.T) {
 	tableName := "foo"
@@ -27,7 +31,7 @@ func TestRegexReplaceAnonymizerBuild(t *testing.T) {
 
 			anonymizer := NewRegexReplaceAnonymizer(c.pattern, c.replacement)
 
-			compareStrings(
+			testutils.CompareStrings(
 				anonymizer.Build(tableName, columnName),
 				c.expectedString,
 				t,

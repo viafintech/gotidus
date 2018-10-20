@@ -1,6 +1,10 @@
 package postgres
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/Barzahlen/gotidus/testutils"
+)
 
 func TestNullAnonymizerBuild(t *testing.T) {
 	anonymizer := NewNullAnonymizer()
@@ -8,7 +12,7 @@ func TestNullAnonymizerBuild(t *testing.T) {
 	tableName := "foo"
 	columnName := "bar"
 
-	compareStrings(
+	testutils.CompareStrings(
 		anonymizer.Build(tableName, columnName),
 		"NULL::unknown",
 		t,

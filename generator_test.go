@@ -6,6 +6,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/Barzahlen/gotidus/testutils"
 	sqlmock "gopkg.in/DATA-DOG/go-sqlmock.v1"
 )
 
@@ -18,7 +19,7 @@ func TestNewGenerator(t *testing.T) {
 		viewPostfix:  "bazbaz",
 	}
 
-	compareStructs(
+	testutils.CompareStructs(
 		NewGenerator(queryBuilder, WithViewPostfix("bazbaz")),
 		expectedGenerator,
 		t,
@@ -34,23 +35,23 @@ func TestGeneratorAddAndGetTable(t *testing.T) {
 	// Set table
 	generator.AddTable("foo", fooTable)
 
-	compareStructs(fooTable, generator.tables["foo"], t)
+	testutils.CompareStructs(fooTable, generator.tables["foo"], t)
 
 	// Check loading
 	tbl := generator.GetTable("foo")
 
-	compareStructs(fooTable, tbl, t)
+	testutils.CompareStructs(fooTable, tbl, t)
 
 	var nullTable *Table
 
 	// Check table not set
-	compareStructs(generator.tables["baz"], nullTable, t)
+	testutils.CompareStructs(generator.tables["baz"], nullTable, t)
 
 	// Check default table
 	defaultTable := generator.GetTable("baz")
 	expectedTable := NewTable()
 
-	compareStructs(defaultTable, expectedTable, t)
+	testutils.CompareStructs(defaultTable, expectedTable, t)
 }
 
 func TestGeneratorClearViews(t *testing.T) {
@@ -110,7 +111,7 @@ func TestGeneratorClearViews(t *testing.T) {
 
 			generator := NewGenerator(queryBuilder)
 
-			compareStructs(
+			testutils.CompareStructs(
 				generator.ClearViews(db),
 				c.expectedError,
 				t,
@@ -281,7 +282,7 @@ func TestGeneratorCreateViews(t *testing.T) {
 
 			generator := c.buildGenerator()
 
-			compareStructs(
+			testutils.CompareStructs(
 				generator.CreateViews(db),
 				c.expectedError,
 				t,
@@ -325,7 +326,7 @@ func TestGeneratorViewName(t *testing.T) {
 
 			viewName := g.ViewName(c.tableName)
 
-			compareStrings(viewName, c.expectedViewName, t)
+			testutils.CompareStrings(viewName, c.expectedViewName, t)
 		})
 	}
 }
