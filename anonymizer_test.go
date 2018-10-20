@@ -1,9 +1,13 @@
 package gotidus
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/Barzahlen/gotidus/testutils"
+)
 
 func TestFullColumnName(t *testing.T) {
-	compareStrings(
+	testutils.CompareStrings(
 		FullColumnName("table", "column"),
 		"table.column",
 		t,
@@ -16,7 +20,7 @@ func TestNoopAnonymizerBuild(t *testing.T) {
 	tableName := "some_table"
 	columnName := "some_column"
 
-	compareStrings(
+	testutils.CompareStrings(
 		anonymizer.Build(tableName, columnName),
 		FullColumnName(tableName, columnName),
 		t,
@@ -29,7 +33,7 @@ func TestStaticAnonymizerBuild(t *testing.T) {
 	tableName := "some_table"
 	columnName := "some_column"
 
-	compareStrings(
+	testutils.CompareStrings(
 		anonymizer.Build(tableName, columnName),
 		"'23'::integer",
 		t,
