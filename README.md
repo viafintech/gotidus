@@ -68,7 +68,7 @@ Before dumping or restoring you have to manually edit the `tidus_backup_restore.
 ## Bugs and Contribution
 For bugs and feature requests open an issue on Github. For code contributions fork the repo, make your changes and create a pull request.
 
-## Extending functionalits
+## Extending functionality
 The number of anonymizers implemented so far is limited.
 A new anonymization strategy can be easily defined through implementation of the `gotidus.Anonymizer` interface.
 It is furthermore possible to add support for other databases by implementing the `gotidus.QueryBuilder` interface.
