@@ -23,7 +23,7 @@ func TestRemoveJSONKeysAnonymizerBuild(t *testing.T) {
 			expectedString: `(
       SELECT
         concat('{', string_agg(to_json("key") || ':' || "value", ','), '}')::JSON
-      FROM json_each(foo.bar WHERE key <> 'one_key')
+      FROM json_each(foo.bar::JSON) WHERE key <> 'one_key'
     )`,
 		},
 		{
@@ -33,7 +33,7 @@ func TestRemoveJSONKeysAnonymizerBuild(t *testing.T) {
 			expectedString: `(
       SELECT
         concat('{', string_agg(to_json("key") || ':' || "value", ','), '}')::JSON
-      FROM json_each(foo.bar WHERE key <> 'one_key' AND key <> 'another_key')
+      FROM json_each(foo.bar::JSON) WHERE key <> 'one_key' AND key <> 'another_key'
     )`,
 		},
 	}

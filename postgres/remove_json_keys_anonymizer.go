@@ -35,7 +35,7 @@ func (a *RemoveJSONKeysAnonymizer) Build(tableName, columnName string) string {
 		`(
       SELECT
         concat('{', string_agg(to_json("key") || ':' || "value", ','), '}')::JSON
-      FROM json_each(%[1]s WHERE %[2]s)
+      FROM json_each(%[1]s::JSON) WHERE %[2]s
     )`,
 		gotidus.FullColumnName(tableName, columnName),
 		removedKeysString,
