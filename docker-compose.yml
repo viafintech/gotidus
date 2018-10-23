@@ -1,2 +1,7 @@
 gotidus:
   image: gotidus
+  links:
+    - 'gotiduspgdb:pgdb'
+
+gotiduspgdb:
+  image: postgres

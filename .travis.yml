@@ -9,4 +9,4 @@ before_install:
   - docker build -t gotidus .
 
 script:
-  - docker-compose run --rm -T gotidus make test
+  - docker-compose run --rm -T gotidus make testci
