@@ -1,2 +1,5 @@
+# github.com/lib/pq v1.0.0
+github.com/lib/pq
+github.com/lib/pq/oid
 # gopkg.in/DATA-DOG/go-sqlmock.v1 v1.3.0
 gopkg.in/DATA-DOG/go-sqlmock.v1
