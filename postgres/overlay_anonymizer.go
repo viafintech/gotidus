@@ -27,7 +27,7 @@ func NewOverlayAnonymizer(overlayBase string, start int, count int) *OverlayAnon
 	}
 }
 
-// Builds returns the partiql query to overlay the column content with a string.
+// Build returns the partiql query to overlay the column content with a string.
 func (a *OverlayAnonymizer) Build(tableName, columnName string) string {
 	overlay := strings.Repeat(a.overlayBase, a.count)
 

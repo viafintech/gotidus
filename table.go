@@ -22,7 +22,7 @@ func (t *Table) AddAnonymizer(columnName string, anonymizer Anonymizer) *Table {
 	return t
 }
 
-// GetTable retrieves an Anonymizer from the Table configuration.
+// GetAnonymizer retrieves an Anonymizer from the Table configuration.
 // If an Anonymizer was configured for the given name, that Anonymizer will be returned.
 // If no Anonymizer was configured for the given name, the NoopAnonymizer will be returned.
 func (t *Table) GetAnonymizer(columnName string) Anonymizer {

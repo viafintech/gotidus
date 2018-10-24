@@ -22,7 +22,7 @@ func NewEmailAnonymizer() *EmailAnonymizer {
 	}
 }
 
-// Builds returns the partial query holding the logic to overwrite
+// Build returns the partial query holding the logic to overwrite
 // the local part of an email address.
 func (a *EmailAnonymizer) Build(tableName, columnName string) string {
 	return fmt.Sprintf(
