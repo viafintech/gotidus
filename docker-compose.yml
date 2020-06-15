@@ -1,7 +1,12 @@
-gotidus:
-  image: gotidus
-  links:
-    - 'gotiduspgdb:pgdb'
+version: '3.8'
 
-gotiduspgdb:
-  image: postgres
+services:
+  gotidus:
+    build: ./
+    depends_on:
+      - 'gotiduspgdb'
+
+  gotiduspgdb:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: 'ci'
