@@ -1,7 +1,7 @@
 gotidus
 =======
 
-[![Travis Build state](https://api.travis-ci.org/Barzahlen/gotidus.svg)](https://travis-ci.org/Barzahlen/gotidus) [![GoDoc](https://godoc.org/github.com/Barzahlen/gotidus?status.png)](https://godoc.org/github.com/Barzahlen/gotidus)
+[![Travis Build state](https://travis-ci.org/Barzahlen/gotidus.svg?branch=master)](https://travis-ci.org/Barzahlen/gotidus) [![GoDoc](https://godoc.org/github.com/Barzahlen/gotidus?status.png)](https://godoc.org/github.com/Barzahlen/gotidus)
 
 gotidus is a Golang library which allows automatic view generation for every table in an SQL database. The purpose of the views is to anonymize the contents of select columns to ensure that no confidential information leaves the database while still providing access to the data in general.
 
