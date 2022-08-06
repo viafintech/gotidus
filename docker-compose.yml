@@ -10,3 +10,4 @@ services:
     image: postgres
     environment:
       POSTGRES_PASSWORD: 'ci'
+      POSTGRES_INITDB_ARGS: '--auth-host=md5'

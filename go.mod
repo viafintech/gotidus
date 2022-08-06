@@ -1,6 +1,6 @@
 module github.com/Barzahlen/gotidus
 
-go 1.14
+go 1.19
 
 require (
 	github.com/lib/pq v1.0.0
