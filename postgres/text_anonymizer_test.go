@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Barzahlen/gotidus/testutils"
+	"github.com/viafintech/gotidus/testutils"
 )
 
 func TestTextAnonymizerBuild(t *testing.T) {

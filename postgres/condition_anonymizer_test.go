@@ -3,8 +3,8 @@ package postgres
 import (
 	"testing"
 
-	"github.com/Barzahlen/gotidus"
-	"github.com/Barzahlen/gotidus/testutils"
+	"github.com/viafintech/gotidus"
+	"github.com/viafintech/gotidus/testutils"
 )
 
 func TestConditionAnonymizerBuild(t *testing.T) {

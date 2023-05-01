@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Barzahlen/gotidus"
+	"github.com/viafintech/gotidus"
 )
 
 // TextAnonymizer is a gotidus.Anonymizer interface implementation.

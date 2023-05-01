@@ -1,9 +1,9 @@
-FROM golang:1.19.0
+FROM golang:1.20.3
 
 # Don't run tests as root so we can play with permissions
 RUN useradd --create-home --user-group app
 
-ENV GOPACKAGE github.com/Barzahlen/gotidus
+ENV GOPACKAGE github.com/viafintech/gotidus
 
 ADD . /go/src/$GOPACKAGE
 RUN chown -R app /go

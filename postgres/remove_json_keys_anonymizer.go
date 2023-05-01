@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Barzahlen/gotidus"
+	"github.com/viafintech/gotidus"
 )
 
 // RemoveJSONKeysAnonymizer is a gotidus.Anonymizer interface implementation which allows
