@@ -1,20 +1,20 @@
 gotidus
 =======
 
-![GitHub](https://img.shields.io/github/license/viafintech/gotidus) ![Build Status](https://github.com/viafintech/gotidus/actions/workflows/test.yml/badge.svg)  ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/viafintech/gotidus/master) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/viafintech/gotidus)
+[![GoDoc](https://godoc.org/github.com/lib/pq?status.svg)](https://pkg.go.dev/github.com/viafintech/gotidus?tab=doc) ![GitHub](https://img.shields.io/github/license/viafintech/gotidus) ![Build Status](https://github.com/viafintech/gotidus/actions/workflows/test.yml/badge.svg)  ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/viafintech/gotidus/master) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/viafintech/gotidus)
 
 gotidus is a Golang library which allows automatic view generation for every table in an SQL database. The purpose of the views is to anonymize the contents of select columns to ensure that no confidential information leaves the database while still providing access to the data in general.
 
-It is also a port from the [tidus](https://github.com/Barzahlen/tidus) Ruby Gem.
+It is also a port from the [tidus](https://github.com/viafintech/tidus) Ruby Gem.
 
 ## Install
 ```bash
-go get github.com/Barzahlen/gotidus
+go get github.com/viafintech/gotidus
 ```
 
 ## Usage
 
-Please see the example below as well as the [godoc](https://godoc.org/github.com/Barzahlen/gotidus) reference.
+Please see the example below as well as the [godoc](https://godoc.org/github.com/viafintech/gotidus) reference.
 
 ### Example
 ```go

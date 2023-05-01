@@ -1,3 +1,4 @@
+//go:build docker
 // +build docker
 
 package e2etests
@@ -11,9 +12,9 @@ import (
 
 	_ "github.com/lib/pq"
 
-	"github.com/Barzahlen/gotidus"
-	"github.com/Barzahlen/gotidus/postgres"
-	"github.com/Barzahlen/gotidus/testutils"
+	"github.com/viafintech/gotidus"
+	"github.com/viafintech/gotidus/postgres"
+	"github.com/viafintech/gotidus/testutils"
 )
 
 type queryCheck struct {

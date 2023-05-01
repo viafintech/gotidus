@@ -3,7 +3,7 @@ package gotidus
 import (
 	"testing"
 
-	"github.com/Barzahlen/gotidus/testutils"
+	"github.com/viafintech/gotidus/testutils"
 )
 
 func TestNewTable(t *testing.T) {

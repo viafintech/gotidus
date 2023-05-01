@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Barzahlen/gotidus"
+	"github.com/viafintech/gotidus"
 )
 
 // OverlayAnonymizer is a gotidus.Anonymizer implementation

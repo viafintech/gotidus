@@ -1,3 +1,5 @@
+github.com/viafintech/gotidus v1.0.1 h1:MXWrLxJ17EaDgH6zeM1KgixlWdWZ8i/zI6347AoscK8=
+github.com/viafintech/gotidus v1.0.1/go.mod h1:MRko+nImMbBlkAXfjWDTzdOynym1wWVfgID7nISHqcU=
 github.com/lib/pq v1.0.0 h1:X5PMW56eZitiTeO7tKzZxFCSpbFZJtkMMooicw2us9A=
 github.com/lib/pq v1.0.0/go.mod h1:5WUZQaWbwv1U+lTReE5YruASi9Al49XbQIvNi/34Woo=
 gopkg.in/DATA-DOG/go-sqlmock.v1 v1.3.0 h1:FVCohIoYO7IJoDDVpV2pdq7SgrMH6wHnuTyrdrxJNoY=

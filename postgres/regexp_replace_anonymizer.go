@@ -3,7 +3,7 @@ package postgres
 import (
 	"fmt"
 
-	"github.com/Barzahlen/gotidus"
+	"github.com/viafintech/gotidus"
 )
 
 // RegexReplaceAnonymizer is a gotidus.Anonymizer interface implementation which allows

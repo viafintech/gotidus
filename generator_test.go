@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Barzahlen/gotidus/testutils"
+	"github.com/viafintech/gotidus/testutils"
 	sqlmock "gopkg.in/DATA-DOG/go-sqlmock.v1"
 )
 

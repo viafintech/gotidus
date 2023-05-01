@@ -3,7 +3,7 @@ package postgres
 import (
 	"testing"
 
-	"github.com/Barzahlen/gotidus/testutils"
+	"github.com/viafintech/gotidus/testutils"
 )
 
 func TestRemoveJSONKeysAnonymizerBuild(t *testing.T) {
