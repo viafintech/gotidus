@@ -4,6 +4,7 @@ import "fmt"
 
 // SHA256Anonymizer is a gotidus.Anonymizer interface implementation.
 // It overwrites any given value with the SHA256 value limited to the given length.
+// This anonymizer requires the `pgcrypto` extension for postgres to be enabled.
 type SHA256Anonymizer struct {
   length int
 }
