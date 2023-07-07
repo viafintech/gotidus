@@ -14,14 +14,41 @@ import (
 //
 // would be anonymized by a 15 character string based on the md5 hash of the local part.
 type EmailAnonymizer struct {
-  mailLocalPartLength int
+  mailAnonymizedPartLength int
+  mailAnonymizeDomainPart  bool
+}
+
+// EmailAnonymizerOption is the function type for passing options
+// to the EmailAnonymizer during initialization.
+type EmailAnonymizerOption func(*EmailAnonymizer)
+
+// EmailAnonymizedPartLengthOption allows setting the target length for the local part
+// of the anonymization rule
+func EmailAnonymizedPartLengthOption(length int) EmailAnonymizerOption {
+  return func(anonymizer *EmailAnonymizer) {
+    anonymizer.mailAnonymizedPartLength = length
+  }
+}
+
+// EmailAnonymizeDomainPartOption allows configuring whether the domain part should
+// also explicitly be anonymized
+func EmailAnonymizeDomainPartOption(anonymizeDomainPart bool) EmailAnonymizerOption {
+  return func(anonymizer *EmailAnonymizer) {
+    anonymizer.mailAnonymizeDomainPart = anonymizeDomainPart
+  }
 }
 
 // NewEmailAnonymizer initializes a new EmailAnonymizer object
-func NewEmailAnonymizer() *EmailAnonymizer {
-  return &EmailAnonymizer{
-    mailLocalPartLength: 15,
+func NewEmailAnonymizer(options ...EmailAnonymizerOption) *EmailAnonymizer {
+  anonymizer := &EmailAnonymizer{
+    mailAnonymizedPartLength: 15,
   }
+
+  for _, option := range options {
+    option(anonymizer)
+  }
+
+  return anonymizer
 }
 
 // Build returns the partial query holding the logic to overwrite
@@ -38,16 +65,28 @@ func (a *EmailAnonymizer) Build(tableName, columnName string) string {
           ) ||
           '@'::text
         ) ||
-        split_part(
-          (%[1]s)::text,
-          '@'::text,
-          2
-        )
+        %[3]s
       )
     )::CHARACTER VARYING
     ELSE %[1]s
     END`,
     gotidus.FullColumnName(tableName, columnName),
-    a.mailLocalPartLength,
+    a.mailAnonymizedPartLength,
+    a.domainPart(tableName, columnName),
+  )
+}
+
+func (a *EmailAnonymizer) domainPart(tableName, columnName string) string {
+  if a.mailAnonymizeDomainPart {
+    return fmt.Sprintf(
+      `"left"(md5(split_part((%[1]s)::text, '@'::text, 2)::text) %[2]d)`,
+      gotidus.FullColumnName(tableName, columnName),
+      a.mailAnonymizedPartLength,
+    )
+  }
+
+  return fmt.Sprintf(
+    `split_part((%s)::text, '@'::text, 2)`,
+    gotidus.FullColumnName(tableName, columnName),
   )
 }
