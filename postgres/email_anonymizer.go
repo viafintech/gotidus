@@ -79,7 +79,7 @@ func (a *EmailAnonymizer) Build(tableName, columnName string) string {
 func (a *EmailAnonymizer) domainPart(tableName, columnName string) string {
   if a.mailAnonymizeDomainPart {
     return fmt.Sprintf(
-      `"left"(md5(split_part((%[1]s)::text, '@'::text, 2)::text) %[2]d)`,
+      `("left"(md5(split_part((%[1]s)::text, '@'::text, 2)::text), %[2]d) || '.com')`,
       gotidus.FullColumnName(tableName, columnName),
       a.mailAnonymizedPartLength,
     )

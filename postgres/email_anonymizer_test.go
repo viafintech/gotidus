@@ -74,7 +74,7 @@ func TestEmailAnonymizerBuild(t *testing.T) {
           ) ||
           '@'::text
         ) ||
-        "left"(md5(split_part((foo.bar)::text, '@'::text, 2)::text) 10)
+        ("left"(md5(split_part((foo.bar)::text, '@'::text, 2)::text), 10) || '.com')
       )
     )::CHARACTER VARYING
     ELSE foo.bar
